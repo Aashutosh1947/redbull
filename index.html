@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RED BULL | Ice-Cold Energy</title>
+  <!-- Google Fonts: Outfit (headings) and Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind, Fonts, and Shaders Config -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@600&amp;family=Hanken+Grotesk:wght@400;500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;family=Sora:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#90909b",
+                        "primary-fixed-dim": "#bac3ff",
+                        "surface-container-high": "#2a2a2e",
+                        "background": "#131317",
+                        "inverse-primary": "#505a96",
+                        "tertiary-fixed-dim": "#c2c7cb",
+                        "secondary-fixed": "#ffdad5",
+                        "on-primary-fixed": "#08144f",
+                        "secondary-container": "#e10211",
+                        "on-tertiary-fixed": "#171c1f",
+                        "on-tertiary-container": "#7a7f83",
+                        "surface-container": "#1f1f23",
+                        "surface-variant": "#343439",
+                        "tertiary-fixed": "#dee3e7",
+                        "surface-container-lowest": "#0e0e12",
+                        "on-secondary-container": "#fff1ef",
+                        "tertiary": "#c2c7cb",
+                        "on-primary-container": "#707bb9",
+                        "on-surface": "#e4e1e7",
+                        "on-surface-variant": "#c6c5d1",
+                        "surface-dim": "#131317",
+                        "on-error": "#690005",
+                        "surface-bright": "#39393d",
+                        "inverse-on-surface": "#303034",
+                        "on-tertiary": "#2c3134",
+                        "outline-variant": "#454650",
+                        "on-tertiary-fixed-variant": "#42474b",
+                        "secondary-fixed-dim": "#ffb4aa",
+                        "error": "#ffb4ab",
+                        "primary-container": "#000b49",
+                        "surface-container-highest": "#343439",
+                        "on-error-container": "#ffdad6",
+                        "surface-tint": "#bac3ff",
+                        "error-container": "#93000a",
+                        "surface": "#131317",
+                        "on-primary-fixed-variant": "#38427d",
+                        "on-secondary": "#690003",
+                        "inverse-surface": "#e4e1e7",
+                        "primary-fixed": "#dee0ff",
+                        "on-secondary-fixed-variant": "#930007",
+                        "on-background": "#e4e1e7",
+                        "secondary": "#ffb4aa",
+                        "surface-container-low": "#1b1b1f",
+                        "on-primary": "#202b65",
+                        "on-secondary-fixed": "#410001",
+                        "primary": "#bac3ff",
+                        "tertiary-container": "#101518"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "base": "8px",
+                        "max-width": "1440px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Sora"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-xl": ["Sora"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Sora"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .energy-glow {
+            box-shadow: 0 0 20px rgba(186, 195, 255, 0.3);
+        }
+        .red-glow-hover:hover {
+            box-shadow: 0 0 30px rgba(227, 6, 19, 0.4);
+            border-bottom: 2px solid #E30613;
+        }
+        .kinetic-text {
+            text-shadow: 0 0 15px rgba(186, 195, 255, 0.5);
+        }
+        @keyframes pulse-energy {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+        .animate-energy {
+            animation: pulse-energy 4s infinite ease-in-out;
+        }
+    </style>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="font-body-md text-body-md selection:bg-secondary-container selection:text-white">
+
+  <!-- Custom Glow Cursor (Desktop only) -->
+  <div class="custom-cursor" id="custom-cursor"></div>
+  <div class="custom-cursor-glow" id="custom-cursor-glow"></div>
+
+  <!-- Preloader Screen -->
+  <div id="preloader" style="font-family: 'Inter', sans-serif;">
+    <div class="loader-content">
+      <div class="loader-logo">
+        <span class="logo-red">RED</span><span class="logo-blue">BULL</span>
+        <span class="logo-sub">ICE-COLD</span>
+      </div>
+      <div class="loader-track">
+        <div class="loader-bar" id="loader-bar"></div>
+      </div>
+      <div class="loader-percentage" id="loader-percentage">0%</div>
+      <div class="loader-status" id="loader-status">Preloading ice-cold energy...</div>
+    </div>
+  </div>
+
+  <!-- Glassmorphic Header -->
+  <header style="font-family: 'Inter', sans-serif;">
+    <div class="header-container">
+      <a href="#" class="logo">
+        <span class="logo-red">Red</span><span class="logo-blue">Bull</span><span class="logo-dot">.</span>
+      </a>
+      <nav class="desktop-nav">
+        <a href="#" class="nav-link active" data-index="0">The Reveal</a>
+        <a href="#" class="nav-link" data-index="1">Vital Splash</a>
+        <a href="#" class="nav-link" data-index="2">Electric Charge</a>
+        <a href="#" class="nav-link" data-index="3">Ice-Cold Vitality</a>
+      </nav>
+      <div class="header-actions">
+        <a href="#" class="cta-button" id="header-cta" data-index="3">Get Wiiings</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Side Dot Navigator -->
+  <div class="side-navigator" id="side-navigator">
+    <div class="nav-dot active" data-index="0" title="Frozen Force"></div>
+    <div class="nav-dot" data-index="1" title="Vital Splash"></div>
+    <div class="nav-dot" data-index="2" title="Electric Charge"></div>
+    <div class="nav-dot" data-index="3" title="Ice-Cold Vitality"></div>
+  </div>
+
+  <!-- Main Scroll Container -->
+  <main id="scroll-wrapper" style="font-family: 'Inter', sans-serif;">
+    
+    <!-- Hero / Scroll Animation Section -->
+    <section id="hero-section">
+      <!-- Sticky Canvas Container -->
+      <div class="canvas-container">
+        <canvas id="scroll-canvas"></canvas>
+        <div class="radial-vignette"></div>
+      </div>
+
+      <!-- Scroll-Synchronized Text Overlays -->
+      <div class="scroll-slides">
+        <!-- Centered Landing Title (Fades on Scroll) -->
+        <div class="centered-hero-title" id="hero-landing-text">
+          <div class="hero-title-content">
+            <h1 class="hero-main-title">Red Bull</h1>
+            <p class="hero-sub-title">Gives You Wings</p>
+          </div>
+        </div>
+
+        <!-- Slide 2: The Ice-Cold Splash -->
+        <div class="slide-overlay" id="slide-1">
+          <div class="overlay-content">
+            <span class="badge">02 // VITAL SPLASH</span>
+            <h1>UNLEASH THE<br><span class="gradient-water">REFRESHMENT</span></h1>
+            <p>A sudden volcanic eruption of mountain-cold water. A dynamic wave of vitality designed to shock your senses.</p>
+          </div>
+        </div>
+
+        <!-- Slide 3: Electrifying Energy -->
+        <div class="slide-overlay" id="slide-2">
+          <div class="overlay-content">
+            <span class="badge">03 // ELECTRIC CHARGE</span>
+            <h1>CHARGED BY<br><span class="gradient-lightning">LIGHTNING</span></h1>
+            <p>Power through the chill. Ice meets electricity as energy surges through a design optimized for peak focus.</p>
+          </div>
+        </div>
+
+        <!-- Slide 4: Red Bull Energy Drink -->
+        <div class="slide-overlay" id="slide-3">
+          <div class="overlay-content">
+            <span class="badge">04 // ICE-COLD VITALITY</span>
+            <h1>RED BULL<br><span class="gradient-silver">ICE-COLD</span></h1>
+            <p>Vitalizes body and mind. The ultimate companion for your active lifestyle, chilled to absolute perfection.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="scroll-indicator" id="scroll-indicator">
+        <div class="mouse">
+          <div class="wheel"></div>
+        </div>
+        <span>Scroll Down</span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Imported Tailwind Sections -->
+  <!-- Features Section (Bento Grid) -->
+<section class="py-24 bg-surface-container-lowest">
+<div class="max-w-max-width mx-auto px-margin-desktop">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-white mb-2 uppercase">Engineered for Performance</h2>
+<div class="w-24 h-1 bg-secondary-container mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<!-- Feature Card 1 -->
+<div class="glass-panel p-8 group hover:bg-white/10 transition-all duration-500">
+<span class="material-symbols-outlined text-4xl text-primary mb-6 block group-hover:scale-110 transition-transform">bolt</span>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-white mb-4">Energy Boost</h3>
+<p class="text-on-tertiary-container">Instant surge of vitality that keeps you moving through the most intense sessions.</p>
+</div>
+<!-- Feature Card 2 -->
+<div class="glass-panel p-8 group hover:bg-white/10 transition-all duration-500">
+<span class="material-symbols-outlined text-4xl text-primary mb-6 block group-hover:scale-110 transition-transform">water_drop</span>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-white mb-4">Refreshing Taste</h3>
+<p class="text-on-tertiary-container">The iconic flavor profile that redefined the energy drink category worldwide.</p>
+</div>
+<!-- Feature Card 3 -->
+<div class="glass-panel p-8 group hover:bg-white/10 transition-all duration-500">
+<span class="material-symbols-outlined text-4xl text-primary mb-6 block group-hover:scale-110 transition-transform">science</span>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-white mb-4">Premium Ingredients</h3>
+<p class="text-on-tertiary-container">Scientifically backed blend of Alpine spring water, caffeine, and taurine.</p>
+</div>
+<!-- Feature Card 4 -->
+<div class="glass-panel p-8 group hover:bg-white/10 transition-all duration-500">
+<span class="material-symbols-outlined text-4xl text-primary mb-6 block group-hover:scale-110 transition-transform">speed</span>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-white mb-4">Performance</h3>
+<p class="text-on-tertiary-container">Trusted by world-class athletes and high achievers across every discipline.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Choose Section -->
+<section class="py-24 relative">
+<div class="max-w-max-width mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="space-y-6">
+<div class="glass-panel p-6 border-l-4 border-secondary-container">
+<h4 class="font-bold text-white mb-2">Fast Energy</h4>
+<p class="text-sm text-on-surface-variant">Absorbs quickly to provide an immediate kinetic advantage.</p>
+</div>
+<div class="glass-panel p-6 border-l-4 border-primary">
+<h4 class="font-bold text-white mb-2">Mental Focus</h4>
+<p class="text-sm text-on-surface-variant">Sharpens concentration for gaming and high-stakes work.</p>
+</div>
+</div>
+<div class="pt-12">
+<div class="glass-panel p-6 border-l-4 border-white h-full">
+<h4 class="font-bold text-white mb-2">Active Lifestyle</h4>
+<p class="text-sm text-on-surface-variant">The perfect companion for travel, fitness, and late-night adventures.</p>
+</div>
+</div>
+</div>
+<div>
+<h2 class="font-headline-lg text-headline-lg text-white mb-6">WHY THE WORLD CHOOSES RED BULL</h2>
+<p class="text-on-surface-variant mb-8 leading-relaxed">Red Bull is more than just a drink; it's a commitment to excellence. Whether you're pulling an all-nighter or pushing for a podium finish, we provide the fuel for your ambitions.</p>
+<img alt="Performance Lifestyle" class="w-full h-64 object-cover rounded-xl opacity-80 border border-white/10 shadow-xl" data-alt="A high-speed action shot of a Formula 1 racing car tearing through a neon-lit urban circuit at night. Streaks of blue and red light trail behind the vehicle, emphasizing its kinetic speed and power. The lighting is cinematic, highlighting the sleek carbon fiber body and the intense focus of the environment, mirroring the high-performance energy of the Red Bull brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCybBkBJRxYA55qsLdxLkdCSLyRlbD9h4q6TsvOA4wU-c_5kHddE8CWeb-J3MPWJS7jkVfoVjzBJCUfh2-9nSI2DLrbHuWqqwRFO5VSDm_HEc3EC4kzIvI2BbfsjcRnmACXEO3ccviFVz0f9PPwDYdDCVGXRcGiRNozC_pJPRNUsv_-TLUMe_ZjkoFMdjmAgwqBdzpc4RQichp4O9IGY_Bal0L_bNy4ahwrRsAbeVadLvjcBfmSvitmD_WctqCGR1gCHlCg6LAwITWt"/>
+</div>
+</div>
+</section>
+<!-- Ingredients Infographic -->
+<section class="py-24 bg-surface-container">
+<div class="max-w-max-width mx-auto px-margin-desktop">
+<div class="text-center mb-20">
+<h2 class="font-headline-lg text-headline-lg text-white uppercase mb-4">What's Inside Matters</h2>
+<p class="font-label-caps text-label-caps text-primary tracking-[0.2em]">TRANSPARENT EXCELLENCE</p>
+</div>
+<div class="relative max-w-4xl mx-auto h-[500px] flex items-center justify-center">
+<div class="absolute inset-0 flex items-center justify-center opacity-10">
+<span class="material-symbols-outlined text-[300px]">microwave</span>
+</div>
+<!-- Central Can Anchor (Visual representation) -->
+<div class="relative z-10 w-32 h-64 glass-panel border-white/20 rounded-xl overflow-hidden flex flex-col justify-center items-center shadow-[0_0_50px_rgba(227,6,19,0.2)]">
+<div class="w-2 h-40 bg-gradient-to-b from-secondary-container to-primary rounded-full"></div>
+</div>
+<!-- Hotspots -->
+<div class="absolute top-[10%] left-[10%] glass-panel p-6 w-64 red-glow-hover transition-all">
+<div class="flex items-center gap-3 mb-2">
+<span class="w-3 h-3 bg-secondary-container rounded-full animate-pulse"></span>
+<h4 class="font-bold text-white uppercase tracking-wider">Caffeine</h4>
+</div>
+<p class="text-xs text-on-surface-variant">Naturally occurring in more than 60 plants, caffeine has been consumed for centuries for its stimulating effects.</p>
+</div>
+<div class="absolute bottom-[20%] right-[5%] glass-panel p-6 w-64 red-glow-hover transition-all">
+<div class="flex items-center gap-3 mb-2">
+<span class="w-3 h-3 bg-primary rounded-full animate-pulse"></span>
+<h4 class="font-bold text-white uppercase tracking-wider">Taurine</h4>
+</div>
+<p class="text-xs text-on-surface-variant">An amino acid, naturally occurring in the human body and present in the daily diet. Involved in biological processes.</p>
+</div>
+<div class="absolute top-[40%] right-[10%] glass-panel p-6 w-64 red-glow-hover transition-all">
+<div class="flex items-center gap-3 mb-2">
+<span class="w-3 h-3 bg-white rounded-full animate-pulse"></span>
+<h4 class="font-bold text-white uppercase tracking-wider">B-Vitamins</h4>
+</div>
+<p class="text-xs text-on-surface-variant">Essential micronutrients that contribute to normal energy-yielding metabolism and mental performance.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Lifestyle Grid -->
+<section class="py-24">
+<div class="max-w-max-width mx-auto px-margin-desktop">
+<h2 class="font-headline-lg text-headline-lg text-white mb-12 text-center">FUELING EVERY AMBITION</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 h-[600px]">
+<div class="relative group overflow-hidden rounded-xl col-span-2 row-span-2">
+<img alt="Extreme Sports" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A cinematic low-angle shot of a mountain biker performing a mid-air trick against a dramatic sunset sky. The rider is perfectly silhouetted, with golden light outlining the bicycle and the dust trails in the air. The scene is energetic and high-contrast, evoking a sense of extreme adrenaline and the dark futuristic aesthetic of the Red Bull brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDh_MQJU8KS37z5CcACGQ-r0yjgm8sRQWeQE-LAPBLU7e1WW8s4LgEnu89Pb0UYfjX0atuC5f47fC1uAClcq2p7bqkZpTlTSq_XkiQ9nfsptsAV6w08E5pQjL1Lg7NU3D2BuHN5N0RjyLp9JLryOW4dthP_7PFvCMFcT-qi8P8zN4s5c6Qh0f5xIaR9xTXjErTxC7AqQRdPA88JB86NFgypPFtmQ9CSw9NwdXwjRV1LbHVqTR1s1T5ZLMU0o-Wq4D60HH_Xl6SEEgLO"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent flex items-end p-8">
+<div>
+<span class="font-label-caps text-label-caps text-secondary-container mb-2 block">ATHLETICS</span>
+<h3 class="text-2xl font-bold text-white">EXTREME SPORTS</h3>
+</div>
+</div>
+</div>
+<div class="relative group overflow-hidden rounded-xl">
+<img alt="Gaming" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A close-up shot of a professional gamer in a dark room, illuminated by the glowing blue and red LEDs of a high-end gaming setup. The reflection of the screen is visible on their headset, creating a high-tech HUD-like atmosphere. The lighting is moody and focused, with deep blacks and vibrant neon accents, perfectly matching the energy and focus associated with the brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxYTJa-zbeQ4TLeqC90Xr_PY1xIzIJZayfCtYNdqre04mOLlKDAcriiIggSiwdWdGbN7UYuwiVVIrGh6FRtK2LvGaEMVOecFplgZfWea8oNM-v1ZfCs-N2N-leYkhLtemdEAxFYLk2tn45xE_4FPyOzVfQuuj8tVX8F_lVd08u38s0_TBiiR8vhcFG7qpreLEncy4k7J-CgaYkCjjaMZHtZcPEMMTXT-FogIb35LzUMFfCze4VyQ7wtg63tEoCB3f1NSyY-g-SQURM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent flex items-end p-4">
+<h3 class="text-lg font-bold text-white">GAMING</h3>
+</div>
+</div>
+<div class="relative group overflow-hidden rounded-xl">
+<img alt="Events" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A vibrant night scene of an outdoor music festival stage with intense light shows featuring beams of red and white light cutting through the dark sky. The crowd is a sea of silhouettes energized by the performance. The overall mood is electric, social, and world-class, emphasizing the brand's connection to high-energy cultural events." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGUhlatn0vWuvoMAASftP7Om1WNqXeYf-JCVP9c2tnVjvkzz3nRLk0pv4VjF-KdW-uYcQJLd9uBJ9FjeHmmEk7B3eNuecUfCkjZnOkU9mI7axpw4Qpl5xYRE_EX84HvB44hFdRaptPRlwTLrPSR9SlwkDMWhWPzOadAVoKXCJcIojWb2-P2YgIXWirayjjrNo4zgGL6ukSzL00KllJY6Vunh7HqDFq2v1YOxjvIcaXwbj48kFSxvJIVLZVJaDdpV8Y8VsJHelMcKNJ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent flex items-end p-4">
+<h3 class="text-lg font-bold text-white">EVENTS</h3>
+</div>
+</div>
+<div class="relative group overflow-hidden rounded-xl col-span-2">
+<img alt="Fitness" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A sharp, detailed photograph of a person lifting weights in a high-tech, modern gym environment at night. The scene is lit with blue ambient lighting and focused spotlights, creating deep shadows and highlighting muscle definition. The aesthetic is sophisticated, technical, and powerful, aligning with the fitness and performance-driven aspects of the energy drink brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyKcLEUNnRXm4egWF2_upfJKBID9feR8vA3HITbhyB6Em-a342dLN0Mp0jeA-ekX4PT8UDI5KaRx4CLq7fFG4MyJYs3yPDDY8UuqXzEmnNrjIv71h5dqQHhpZGdW4sJBkFWPp1ImgnYl4UqnZCNDTIdBCHz14q6-861yKCErmViExT8IscdfHQXefVlLQXRqwAEFGZVl7P1rqtHvixL1rIQl5fIpKdrQ0NMCzDnOsrCHxLCb4bal3AV4f-Rdx4RnRvDT_cEgMzzbOa"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent flex items-end p-8">
+<h3 class="text-xl font-bold text-white">ELITE FITNESS</h3>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Reviews Section -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-max-width mx-auto px-margin-desktop">
+<h2 class="font-headline-lg text-headline-lg text-white mb-12 text-center">VOICES OF POWER</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="glass-panel p-8">
+<div class="flex text-secondary-container mb-4">
+<span class="material-symbols-outlined fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="italic text-on-surface mb-6">"Nothing beats the focus I get before a race. It's my ritual."</p>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-fixed-dim"></div>
+<span class="font-bold text-white">Alex R., Drift Pilot</span>
+</div>
+</div>
+<div class="glass-panel p-8">
+<div class="flex text-secondary-container mb-4">
+<span class="material-symbols-outlined fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="italic text-on-surface mb-6">"Essential for my 12-hour streams. Stays refreshing until the end."</p>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed-dim"></div>
+<span class="font-bold text-white">Sarah V., Content Creator</span>
+</div>
+</div>
+<div class="glass-panel p-8">
+<div class="flex text-secondary-container mb-4">
+<span class="material-symbols-outlined fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="italic text-on-surface mb-6">"The only thing that helps me power through a heavy training block."</p>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed-dim"></div>
+<span class="font-bold text-white">Marcus T., Iron Athlete</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Variants Carousel -->
+<section class="py-24 overflow-hidden">
+<div class="max-w-max-width mx-auto px-margin-desktop mb-12 flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-white uppercase">The Editions</h2>
+<p class="text-on-tertiary-container">Discover your favorite flavor profile</p>
+</div>
+      <div class="flex gap-4">
+        <button id="carousel-prev" class="w-12 h-12 rounded-full border border-outline/30 flex items-center justify-center hover:bg-white/10 transition-all">
+          <span class="material-symbols-outlined">chevron_left</span>
+        </button>
+        <button id="carousel-next" class="w-12 h-12 rounded-full border border-outline/30 flex items-center justify-center hover:bg-white/10 transition-all">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </button>
+      </div>
+    </div>
+    <div id="carousel-container" class="flex gap-8 px-margin-desktop overflow-x-auto pb-12 snap-x hide-scrollbar">
+<!-- Variant 1 -->
+<div class="min-w-[300px] snap-start">
+<div class="glass-panel p-8 group cursor-pointer h-full border-b-2 border-transparent hover:border-secondary-container transition-all">
+<img alt="Sugarfree" class="w-full h-64 object-contain mb-6 group-hover:scale-105 transition-transform" data-alt="A clean, studio-lit product shot of a Red Bull Sugarfree can, emphasizing the silver and blue geometric pattern. The lighting is crisp and modern, with soft shadows and a cool, clinical color palette that reflects the clean, zero-sugar nature of the product. High-end, premium aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiSK6vOu7_6H9r34BgOv2lBNiPa_xcaZO5RvGLrryTs0bFcbYzPxgtdUFAoY-ulq1UI4EFVaAkkg5J0RrKB7VGSZYk23EXY6_gf2JipZf6l6c1WDlWJ23M5tHKbyv8rMJJU1AqqWizjPzxns7yme9n0h_2rp6OPaAhHVwPVvWLF6S1allqx3VJhRs02BnvVpLtnKm79k-NEdfV-mPlnTMaM1r8ruVM03ZX4NlLTs6h1dHE98eN2rzdtXcLuinwJEsc_h57_XeNfKvI"/>
+<h3 class="font-bold text-white text-xl text-center">Sugarfree</h3>
+</div>
+</div>
+<!-- Variant 2 -->
+<div class="min-w-[300px] snap-start">
+<div class="glass-panel p-8 group cursor-pointer h-full border-b-2 border-transparent hover:border-[#FFD700] transition-all">
+<img alt="Tropical Edition" class="w-full h-64 object-contain mb-6 group-hover:scale-105 transition-transform" data-alt="A vibrant product shot of the Red Bull Yellow Edition, featuring the bright yellow can with tropical imagery. The background is a warm, orange-toned sunset glow, highlighting the tropical flavor profile. High contrast, energetic, and visually striking." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsy2LMggm4OcKUKF4StYEvHRtqm0tg_lHTDUTbbMwyMQ6lJw-YcKef2FNjfmQpk7-uLNt3-Dy9keDKKpsj65uiK2RRqPYphUohcQU5Wb0DaG4KemMl8NmeFztRwoc_0TIazSw16Sf-Oj8rVy3Tp_7Fl0nK9VWAWTWcwKgmk0QfmdPkwqGdyZUyvvIqjNOOafbg83EjPtKRH8d7LUssy5pGnkQc-vDqAFuj6CrdiFhH4w8La41QkhW3_2fq62FSr1OcT4Fw9KssrOdb"/>
+<h3 class="font-bold text-white text-xl text-center">The Tropical Edition</h3>
+</div>
+</div>
+<!-- Variant 3 -->
+<div class="min-w-[300px] snap-start">
+<div class="glass-panel p-8 group cursor-pointer h-full border-b-2 border-transparent hover:border-[#800080] transition-all">
+<img alt="The Purple Edition" class="w-full h-64 object-contain mb-6 group-hover:scale-105 transition-transform" data-alt="A sleek product shot of the Red Bull Acai Edition, featuring a deep purple metallic can. The lighting is dark and mysterious, with neon purple rim light accentuating the edges of the can. It feels premium and exotic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpONtyUnEiu3ugypeZV275QHTkGOt1fkVpyTyrCYGo77mSuappUo-EHckip2UcxQIRHHpVTBf8uZJ-POyFmnjnfXGTnBqBx19hUF1V36HqTJPtsVnEXSkq3gASvCNBucnhbwRjZXKKpCrCFAr41HkFa8Sq96qzt37ANCa6Fc4_uNH8yyRQ7I7CAjx9_IswAbqzUiGpHxHwn3Q44fdmkx6DLU0O3N--Tw4TjXAVaLqtOXNbUqRG6KQBMcnj0uEj0EiYG3S2vk69pgyw"/>
+<h3 class="font-bold text-white text-xl text-center">The Acai Edition</h3>
+</div>
+</div>
+<!-- Variant 4 -->
+<div class="min-w-[300px] snap-start">
+<div class="glass-panel p-8 group cursor-pointer h-full border-b-2 border-transparent hover:border-[#00FF00] transition-all">
+<img alt="The Green Edition" class="w-full h-64 object-contain mb-6 group-hover:scale-105 transition-transform" data-alt="A refreshing product shot of the Red Bull Kiwi-Apple Edition, with a bright green metallic can. Water droplets are visible on the surface of the can, and the lighting is bright and summery, evoking a crisp, cool sensation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUhEvP0qOgJTsnaNuYHUJR6aFk0tSmU7mf2t6MVDJX6N0-8tCuIoQNrtl4lF4QlOrlksmFY5YYas6FxX9ID80wNvvY6GykT5HUBTyyGOq0lSSaulDgIy40Wazc0m1ACFnOGaTZWVpWVPXJxIgJjiamfWgIpVZ0FALBYMhuViHdu6qJQv-I7O1qT2JUZ5sCdOgoE5RajYMdoRvmK9tzWZ60w_J97vRL-JnKCX8rfV46NrDeXxQlyeFHUxMhVVrMJuL4yuSTJwPysAos"/>
+<h3 class="font-bold text-white text-xl text-center">The Green Edition</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-24 bg-surface-container-lowest">
+<div class="max-w-2xl mx-auto px-margin-mobile">
+<h2 class="font-headline-lg text-headline-lg text-white mb-12 text-center uppercase tracking-widest">Inquiries</h2>
+<div class="space-y-4">
+<details class="group glass-panel rounded-lg overflow-hidden border border-outline/10">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none hover:bg-white/5 transition-colors">
+<span class="font-bold text-white">When is the best time to drink Red Bull?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-tertiary-container">
+                        Red Bull is appreciated by high performers, athletes, and students. Best consumed when you need a boost—before a workout, during a long drive, or in busy periods at work.
+                    </div>
+</details>
+<details class="group glass-panel rounded-lg overflow-hidden border border-outline/10">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none hover:bg-white/5 transition-colors">
+<span class="font-bold text-white">Is caffeine the only active ingredient?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-tertiary-container">
+                        No, Red Bull also contains Taurine, B-group vitamins, and Alpine spring water to create its unique functional blend.
+                    </div>
+</details>
+<details class="group glass-panel rounded-lg overflow-hidden border border-outline/10">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none hover:bg-white/5 transition-colors">
+<span class="font-bold text-white">Are there sugar-free options?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-tertiary-container">
+                        Yes, Red Bull Sugarfree and Red Bull Zero provide the same functional benefits without any sugar.
+                    </div>
+</details>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="relative py-32 overflow-hidden bg-primary-container">
+<!-- STITCH_SHADER_START:ANIMATION_3 class="absolute inset-0 w-full h-full opacity-30" -->
+<div class="absolute inset-0 w-full h-full opacity-30" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_3" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_3');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+uniform float u_time;
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+varying vec2 v_texCoord;
+
+void main() {
+    vec2 uv = v_texCoord;
+    vec2 p = (uv - 0.5) * 2.0;
+    p.x *= u_resolution.x / u_resolution.y;
+
+    float t = u_time * 0.5;
+    
+    // Create multiple flowing streaks
+    float final_color = 0.0;
+    for(float i = 0.0; i < 5.0; i++) {
+        float speed = 1.0 + i * 0.2;
+        float offset = i * 1.5;
+        float y = sin(p.x * 2.0 + t * speed + offset) * 0.3;
+        float dist = abs(p.y - y);
+        float brightness = 0.02 / (dist * dist + 0.01);
+        
+        // Pulse brightness
+        brightness *= 0.5 + 0.5 * sin(t * 3.0 + i);
+        
+        final_color += brightness;
+    }
+
+    // Red Bull inspired blue-white glow
+    vec3 color = vec3(0.0, 0.1, 0.5) * final_color;
+    color += vec3(0.3, 0.5, 1.0) * pow(final_color * 0.5, 2.0);
+    
+    // Vignette
+    float vig = 1.0 - length(p) * 0.5;
+    color *= clamp(vig, 0.0, 1.0);
+
+    gl_FragColor = vec4(color, color.r * 0.5);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_3 -->
+<div class="relative z-10 text-center max-w-4xl mx-auto px-margin-mobile">
+<h2 class="font-headline-xl text-headline-xl text-white mb-8 uppercase tracking-tighter">FUEL YOUR NEXT ADVENTURE</h2>
+<p class="text-xl text-on-primary-container mb-12">The sky is not the limit. It's just the beginning.</p>
+<button class="bg-secondary-container text-white px-12 py-5 font-bold text-xl rounded-none shadow-[0_0_30px_rgba(227,6,19,0.5)] hover:scale-105 active:scale-95 transition-all">ORDER YOUR PACK NOW</button>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full py-12 bg-surface-container-lowest border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-max-width mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="font-headline-lg text-headline-lg text-secondary-container font-black mb-6">RED BULL</div>
+<p class="text-on-tertiary-container text-sm">Giving wings to people and ideas since 1987.</p>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6">Explore</h5>
+<ul class="space-y-4">
+<li><a class="text-on-tertiary-container hover:text-secondary transition-all duration-200 hover:translate-x-1 inline-block" href="#">Red Bull TV</a></li>
+<li><a class="text-on-tertiary-container hover:text-secondary transition-all duration-200 hover:translate-x-1 inline-block" href="#">Athletes</a></li>
+<li><a class="text-on-tertiary-container hover:text-secondary transition-all duration-200 hover:translate-x-1 inline-block" href="#">Events</a></li>
+<li><a class="text-on-tertiary-container hover:text-secondary transition-all duration-200 hover:translate-x-1 inline-block" href="#">Stories</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6">Support</h5>
+<ul class="space-y-4">
+<li><a class="text-on-tertiary-container hover:text-secondary transition-all duration-200 hover:translate-x-1 inline-block" href="#">Contact Us</a></li>
+<li><a class="text-on-tertiary-container hover:text-secondary transition-all duration-200 hover:translate-x-1 inline-block" href="#">Help Center</a></li>
+<li><a class="text-on-tertiary-container hover:text-secondary transition-all duration-200 hover:translate-x-1 inline-block" href="#">Terms of Use</a></li>
+<li><a class="text-on-tertiary-container hover:text-secondary transition-all duration-200 hover:translate-x-1 inline-block" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6">Newsletter</h5>
+<div class="flex">
+<input class="bg-surface-variant border-none text-white p-3 rounded-l-lg focus:ring-1 focus:ring-secondary-container w-full" placeholder="Energy in your inbox" type="email"/>
+<button class="bg-secondary-container p-3 rounded-r-lg"><span class="material-symbols-outlined text-white">send</span></button>
+</div>
+</div>
+</div>
+<div class="max-w-max-width mx-auto px-margin-desktop mt-12 pt-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="font-body-md text-body-md text-on-tertiary-container">© 2024 Red Bull. All Rights Reserved.</div>
+<div class="flex gap-6">
+<a class="text-on-tertiary-container hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-on-tertiary-container hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="text-on-tertiary-container hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined">videocam</span></a>
+</div>
+</div>
+</footer>
+
+
+  
+
+  
+
+  <!-- Application logic -->
+  <script src="/main.js"></script>
+</body>
+</html>
